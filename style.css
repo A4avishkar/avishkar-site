@@ -182,6 +182,26 @@ body::before {
     max-width: 420px;
 }
 
+.hero-photo {
+    margin-bottom: var(--space-lg);
+}
+
+.hero-profile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(14, 165, 233, 0.4);
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-profile-image:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.3);
+    border-color: rgba(14, 165, 233, 0.6);
+}
+
 .hero-buttons {
     display: flex;
     gap: var(--space-md);
