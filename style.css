@@ -267,9 +267,17 @@ body::before {
     margin-right: 6px;
 }
 
-.card-dots span:nth-child(1) { background: #ff5f57; }
-.card-dots span:nth-child(2) { background: #febc2e; }
-.card-dots span:nth-child(3) { background: #28c840; }
+.card-dots span:nth-child(1) {
+    background: #ff5f57;
+}
+
+.card-dots span:nth-child(2) {
+    background: #febc2e;
+}
+
+.card-dots span:nth-child(3) {
+    background: #28c840;
+}
 
 .card-content {
     font-family: var(--font-mono);
@@ -278,10 +286,21 @@ body::before {
     color: var(--text-secondary);
 }
 
-.code-keyword { color: #c792ea; }
-.code-var { color: #82aaff; }
-.code-string { color: #c3e88d; }
-.code-line.indent { padding-left: var(--space-lg); }
+.code-keyword {
+    color: #c792ea;
+}
+
+.code-var {
+    color: #82aaff;
+}
+
+.code-string {
+    color: #c3e88d;
+}
+
+.code-line.indent {
+    padding-left: var(--space-lg);
+}
 
 /* ===== SECTIONS ===== */
 .section {
@@ -317,6 +336,27 @@ body::before {
     font-size: var(--text-lg);
     color: var(--text-secondary);
     line-height: 1.75;
+}
+
+.about-photo {
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(14, 165, 233, 0.3);
+    box-shadow: 0 4px 16px rgba(14, 165, 233, 0.15);
+    transition: all 0.3s ease;
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(14, 165, 233, 0.25);
+    border-color: rgba(14, 165, 233, 0.5);
 }
 
 /* ===== SKILLS ===== */
