@@ -1,85 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phozi - Unified Google Photos & Drive Manager</title>
-    <meta name="description" content="Manage multiple Google Photos accounts, detect duplicates, and organize your cloud storage in one place.">
+    <meta name="description"
+        content="Manage multiple Google Photos accounts, detect duplicates, and organize your cloud storage in one place.">
     <link rel="stylesheet" href="../style.css">
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         .phozi-hero {
             padding: 100px 20px;
             text-align: center;
-            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-elevated) 100%);
+            border-bottom: 1px solid var(--border);
         }
+
         .phozi-logo {
             width: 120px;
             height: 120px;
             margin-bottom: 24px;
             border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--border);
         }
+
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 32px;
-            padding: 60px 20px;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            padding: 80px 20px;
+            max-width: 1100px;
             margin: 0 auto;
         }
+
         .feature-card {
-            background: white;
-            padding: 32px;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid #eee;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+            transition: transform var(--transition);
         }
+
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+
+        .feature-card h3 {
+            color: var(--accent);
+            margin-bottom: 16px;
+            font-size: var(--text-lg);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+        }
+
         .legal-links {
             margin-top: 40px;
-            font-size: 0.9em;
-            color: #666;
+            padding: 20px;
+            font-size: var(--text-sm);
+            color: var(--text-muted);
         }
+
         .legal-links a {
-            margin: 0 12px;
-            color: #2563eb;
+            margin: 0 16px;
+            color: var(--accent);
             text-decoration: none;
+            font-weight: 500;
+        }
+
+        .legal-links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <header class="header">
-        <div class="logo">
-            <a href="/" style="text-decoration:none; color:inherit;"><span class="logo-text">Avishkar</span></a>
+        <div class="container" style="display:flex; width:100%; justify-content:space-between; align-items:center;">
+            <div class="logo">
+                <a href="/" style="text-decoration:none; color:inherit;"><span class="logo-text">Avishkar</span></a>
+            </div>
+            <nav class="nav">
+                <a href="/" class="nav-link">Portfolio</a>
+            </nav>
         </div>
     </header>
 
     <main>
         <section class="phozi-hero">
-            <img src="../images/phozi-logo.png" alt="Phozi Logo" class="phozi-logo" onerror="this.src='https://via.placeholder.com/120?text=Phozi'">
+            <img src="../images/phozi-logo.png" alt="Phozi Logo" class="phozi-logo"
+                onerror="this.src='https://via.placeholder.com/120?text=Phozi'">
             <h1 class="hero-title">Meet Phozi</h1>
-            <p class="hero-description">The ultimate companion for your Google Photos and Drive. Organize, clean, and backup with ease.</p>
-            <div class="hero-buttons">
+            <p class="hero-description" style="margin-left: auto; margin-right: auto;">The ultimate companion for your
+                Google Photos and Drive. Organize, clean, and backup with ease.</p>
+            <div class="hero-buttons" style="justify-content: center;">
                 <a href="#" class="btn btn-primary">Coming Soon to Play Store</a>
             </div>
         </section>
 
         <section class="feature-grid">
             <div class="feature-card">
-                <h3>Multi-Account Management</h3>
-                <p>Switch between multiple Google accounts seamlessly and manage all your photos in one unified gallery.</p>
+                <h3>Multi-Account Support</h3>
+                <p>Switch between multiple Google accounts seamlessly and manage all your photos in one unified gallery.
+                </p>
             </div>
             <div class="feature-card">
-                <h3>Smart Duplicate Detection</h3>
+                <h3>Duplicate Detection</h3>
                 <p>Advanced hashing algorithms to find and remove identical photos across your cloud and device.</p>
             </div>
             <div class="feature-card">
-                <h3>Privacy First</h3>
-                <p>Your data stays on your device. We use Google API scopes strictly for management and never share your data.</p>
+                <h3>Privacy Secure</h3>
+                <p>Your data stays on your device. We use Google API scopes strictly for management and never share your
+                    data.</p>
             </div>
         </section>
 
-        <section style="text-align: center; padding: 40px 20px;">
+        <section style="text-align: center; padding: 60px 20px;">
             <div class="legal-links">
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="tos.html">Terms of Service</a>
@@ -89,7 +131,10 @@
     </main>
 
     <footer class="footer">
-        <p>&copy; 2026 Avishkar. Built for Google Photos users.</p>
+        <div class="container">
+            <p>&copy; 2026 Avishkar. Built for Google Photos users.</p>
+        </div>
     </footer>
 </body>
+
 </html>

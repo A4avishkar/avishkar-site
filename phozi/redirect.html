@@ -5,6 +5,42 @@
     <title>Phozi - Redirecting...</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #0c0f14;
+            --text: #f0f2f5;
+            --accent: #0ea5e9;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .btn {
+            font-size: 1.1em;
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(14, 165, 233, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+    </style>
     <script>
         (function () {
             const params = new URLSearchParams(window.location.search);
@@ -36,13 +72,10 @@
     </script>
 </head>
 
-<body
-    style="font-family: sans-serif; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; margin:0; background:#f0f7ff;">
-    <h2 style="color: #1a237e;">Redirecting to Phozi</h2>
-    <p>Completing login... If the app doesn't open, tap below:</p>
-    <button id="openBtn"
-        style="font-size:1.1em; padding:12px 24px; background:#2563eb; color:white; border:none; border-radius:8px; cursor:pointer;">Open
-        Phozi App</button>
+<body>
+    <h2 style="margin-bottom: 8px;">Redirecting to Phozi</h2>
+    <p style="color: #8b92a0; margin-bottom: 32px;">Completing login... One moment please.</p>
+    <button id="openBtn" class="btn">Open Phozi App</button>
 </body>
 
 </html>

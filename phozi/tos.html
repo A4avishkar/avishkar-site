@@ -10,39 +10,67 @@
         .terms-container {
             max-width: 800px;
             margin: 60px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            line-height: 1.6;
+            padding: 48px;
+            background: var(--bg-card);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            line-height: 1.8;
+            border: 1px solid var(--border);
+        }
+
+        h1 {
+            color: var(--text);
+            margin-bottom: 24px;
         }
 
         h2 {
-            margin-top: 32px;
+            color: var(--accent);
+            margin-top: 40px;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+            font-size: var(--text-xl);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <div class="terms-container">
-        <h1>Terms of Service</h1>
-        <p>By using Phozi, you agree to the following terms:</p>
+    <div class="container">
+        <div class="terms-container">
+            <a href="index.html" style="display:inline-block; margin-bottom: 32px;">&larr; Back to App</a>
+            <h1>Terms of Service</h1>
+            <p>By using Phozi, you agree to the following terms:</p>
 
-        <h2>1. Use of Service</h2>
-        <p>Phozi provides a tool to manage your personal Google Photos and Google Drive data. You are responsible for
-            maintaining the security of your device and Google account.</p>
+            <h2>1. Use of Service</h2>
+            <p>Phozi provides a tool to manage your personal Google Photos and Google Drive data. You are responsible
+                for maintaining the security of your device and Google account.</p>
 
-        <h2>2. Data Responsibility</h2>
-        <p>You acknowledge that actions taken within Phozi (such as deleting files or albums) are synchronized with your
-            Google account. We are not responsible for any data loss resulting from user actions.</p>
+            <h2>2. Data Responsibility</h2>
+            <p>You acknowledge that actions taken within Phozi (such as deleting files or albums) are synchronized with
+                your Google account. We are not responsible for any data loss resulting from user actions.</p>
 
-        <h2>3. Limitation of Liability</h2>
-        <p>Phozi is provided "as is" without any warranties. We shall not be liable for any indirect, incidental, or
-            consequential damages.</p>
+            <h2>3. Limitation of Liability</h2>
+            <p>Phozi is provided "as is" without any warranties. We shall not be liable for any indirect, incidental, or
+                consequential damages.</p>
 
-        <h2>4. Changes to Terms</h2>
-        <p>We reserve the right to update these terms at any time. Your continued use of the app constitutes acceptance
-            of any changes.</p>
+            <h2>4. Changes to Terms</h2>
+            <p>We reserve the right to update these terms at any time. Your continued use of the app constitutes
+                acceptance of any changes.</p>
+        </div>
     </div>
 </body>
 
