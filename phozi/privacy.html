@@ -77,53 +77,71 @@
         <div class="policy-container">
             <a href="index.html" style="display:inline-block; margin-bottom: 32px;">&larr; Back to App</a>
             <h1>Privacy Policy</h1>
-            <p>Last Updated: March 4, 2026</p>
+            <p>Last Updated: March 5, 2026</p>
 
             <section>
-                <p>Phozi ("we", "our", or "us") respects your privacy. This Privacy Policy explains how our mobile
-                    application handles your data when you use our services to manage your Google Photos and Google
-                    Drive content.</p>
+                <p>Phozi ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains
+                    our practices regarding the collection, use, and disclosure of your information through the Phozi
+                    mobile application (the "Service").</p>
+                <p>Phozi is a <strong>local-first</strong> application. This means we prioritize your privacy by
+                    performing data processing on your device rather than on external servers.</p>
             </section>
 
             <h2>1. Data We Access</h2>
-            <p>Phozi uses Google OAuth2 to access your Google account. We request the following scopes:</p>
+            <p>Phozi uses Google OAuth2 to securely connect to your Google account. We request the following permissions
+                (scopes):</p>
             <ul>
-                <li><strong>Google Drive:</strong> To list, read, and manage files for backup and organization purposes.
-                </li>
-                <li><strong>Google Photos:</strong> To display your gallery, manage albums, and perform duplicate
-                    detection.</li>
+                <li><strong>Google Drive access:</strong> Used to analyze storage, manage files, and perform smart
+                    backups.</li>
+                <li><strong>Google Photos access:</strong> Used to display your unified gallery, manage albums, and
+                    detect duplicates.</li>
+                <li><strong>Device Storage:</strong> Used to scan for media files to enable local-to-cloud
+                    synchronization and management.</li>
             </ul>
 
             <div class="highlight">
-                <h2>2. Google User Data - Limited Use Disclosure</h2>
-                <p>Phozi's use and transfer to any other app of information received from Google APIs will adhere to
-                    <strong><a
-                            href="https://developers.google.com/terms/api-services-user-data-policy#additional_requirements_for_specific_api_scopes"
-                            target="_blank">Google API Services User Data Policy</a></strong>, including the Limited Use
-                    requirements.
+                <h2>2. Security & Data Protection</h2>
+                <p><strong>Your data never leaves your device:</strong> Phozi does not operate any backend servers that
+                    store your personal photos, files, or login credentials.
+                <ul>
+                    <li><strong>Local Processing:</strong> All file analysis, including hashing for duplicate detection,
+                        happens entirely on your phone.</li>
+                    <li><strong>Encrypted Tokens:</strong> Your Google authentication tokens are stored using
+                        device-level encryption.</li>
+                    <li><strong>Direct Connection:</strong> The app communicates directly with Google's APIs. No
+                        middle-man servers are involved.</li>
+                </ul>
                 </p>
             </div>
 
-            <h2>3. How We Use Data</h2>
-            <p>We do not collect or store your Google data on our servers. All processing (such as duplicate detection
-                and gallery rendering) happens <strong>locally on your device</strong>. We use your data specifically to
-                provide the core functionality of Phozi:</p>
+            <h2>3. Feature-Specific Data Use</h2>
             <ul>
-                <li><strong>Unified Multi-Account Management:</strong> This is the primary purpose of requesting access.
-                    We enable you to view, browse, and manage media from multiple Google accounts simultaneously in a
-                    single, unified view, eliminating the need to log in and out between accounts.</li>
-                <li><strong>Organized Backup:</strong> Enabling you to upload and organize photos across your different
-                    storage pools.</li>
-                <li><strong>Duplicate Detection:</strong> Locally identifying duplicate files across your various
-                    accounts and local device to help you optimize your storage space.</li>
+                <li><strong>Advanced Auto-Backup:</strong> We monitor system states (WiFi connectivity, charging status)
+                    locally to trigger backups according to your preferences.</li>
+                <li><strong>Smart Duplicate Detection:</strong> We generate cryptographic hashes (fingerprints) of your
+                    files to identify identical content across multiple accounts. These hashes are stored in a local
+                    database on your device.</li>
+                <li><strong>Storage Analysis:</strong> We aggregate metadata from your accounts to provide visual
+                    breakdowns of your storage usage. This is calculation is performed in real-time on your device.</li>
             </ul>
 
-            <h2>4. Data Sharing</h2>
-            <p><strong>We do not sell, trade, or share your personal data with third parties.</strong> Your
-                authentication tokens are stored securely on your device using encrypted storage.</p>
+            <h2>4. Third-Party Services</h2>
+            <p>Phozi integrates with Google API Services. Our use of information received from Google APIs will adhere
+                to the <strong><a href="https://developers.google.com/terms/api-services-user-data-policy"
+                        target="_blank">Google API Services User Data Policy</a></strong>, including the Limited Use
+                requirements.</p>
 
-            <h2>5. Contact Us</h2>
-            <p>If you have questions about this Privacy Policy, please contact us at <a
+            <h2>5. Your Rights</h2>
+            <p>Since Phozi stores data locally, you have full control over your information:</p>
+            <ul>
+                <li><strong>Revoking Access:</strong> You can sign out of your Google accounts or revoke Phozi's access
+                    at any time through your Google Account security settings.</li>
+                <li><strong>Data Deletion:</strong> Uninstalling the app or clearing app data will permanently remove
+                    all local databases and encrypted tokens from your device.</li>
+            </ul>
+
+            <h2>6. Contact Us</h2>
+            <p>For any privacy-related questions, please contact our support team at <a
                     href="mailto:a4avishkar@gmail.com">a4avishkar@gmail.com</a>.</p>
         </div>
     </div>
