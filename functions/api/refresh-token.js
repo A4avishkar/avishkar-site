@@ -9,24 +9,39 @@ export async function onRequest(context) {
 
     // Temporarily allow all methods to debug if POST is being converted to GET
     const method = request.method;
+    // For debugging: Allow GET to check if the function is alive and has env vars
+    if (method === 'GET') {
+        return new Response(JSON.stringify({ 
+            message: 'Refresh Token Function is ALIVE', 
+            hasClientId: !!env.CLIENT_ID,
+            hasClientSecret: !!env.CLIENT_SECRET,
+            envKeys: Object.keys(env)
+        }), { status: 200, headers });
+    }
     
     if (method === 'OPTIONS') {
         return new Response(null, { status: 200, headers });
     }
 
     try {
-        const body = await request.json();
+        let body;
+        try {
+            body = await request.json();
+        } catch (e) {
+            return new Response(JSON.stringify({ error: 'Body is not valid JSON', details: e.message, method }), { status: 400, headers });
+        }
+        
         const { refresh_token } = body;
 
         if (!refresh_token) {
-            return new Response(JSON.stringify({ error: 'Missing refresh_token' }), { status: 400, headers });
+            return new Response(JSON.stringify({ error: 'Missing refresh_token', method }), { status: 400, headers });
         }
 
         const client_id = env.CLIENT_ID;
         const client_secret = env.CLIENT_SECRET;
 
         if (!client_id || !client_secret) {
-            return new Response(JSON.stringify({ error: 'Server configuration error: CLIENT_ID or CLIENT_SECRET not set in Cloudflare' }), { status: 500, headers });
+            return new Response(JSON.stringify({ error: 'CONFIG_ERROR: CLIENT_ID or CLIENT_SECRET missing in env', method }), { status: 500, headers });
         }
 
         const params = new URLSearchParams();
@@ -48,6 +63,6 @@ export async function onRequest(context) {
             headers
         });
     } catch (error) {
-        return new Response(JSON.stringify({ error: error.message, method: method }), { status: 500, headers });
+        return new Response(JSON.stringify({ error: 'UNEXPECTED_EXCEPTION', message: error.message, method }), { status: 500, headers });
     }
 }
