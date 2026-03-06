@@ -7,42 +7,37 @@ export async function onRequest(context) {
         'Content-Type': 'application/json'
     };
 
-    // Temporarily allow all methods to debug if POST is being converted to GET
     const method = request.method;
     
     if (method === 'OPTIONS') {
         return new Response(null, { status: 200, headers });
     }
 
-    // For debugging: Allow GET to check if the function is alive and has env vars
+    // For debugging: Reachability check
     if (method === 'GET') {
         return new Response(JSON.stringify({ 
-            message: 'Exchange Code Function is ALIVE', 
-            hasClientId: !!env.CLIENT_ID,
-            hasClientSecret: !!env.CLIENT_SECRET,
-            envKeys: Object.keys(env)
+            message: 'Exchange Code Function is ONLINE', 
+            method: method,
+            hasEnv: (!!env.CLIENT_ID && !!env.CLIENT_SECRET)
         }), { status: 200, headers });
     }
 
     try {
-        let body;
-        try {
-            body = await request.json();
-        } catch (e) {
-            return new Response(JSON.stringify({ error: 'Body is not valid JSON', details: e.message, method }), { status: 400, headers });
+        if (method !== 'POST') {
+             return new Response(JSON.stringify({ error: 'Please use POST', actualMethod: method }), { status: 400, headers });
+        }
+
+        const body = await request.json().catch(() => null);
+        if (!body) {
+            return new Response(JSON.stringify({ error: 'Body is empty or not JSON', method }), { status: 400, headers });
         }
 
         const { code, code_verifier, redirect_uri } = body;
-
-        if (!code || !code_verifier || !redirect_uri) {
-            return new Response(JSON.stringify({ error: 'Missing parameters', received: Object.keys(body), method }), { status: 400, headers });
-        }
-
         const client_id = env.CLIENT_ID;
         const client_secret = env.CLIENT_SECRET;
 
         if (!client_id || !client_secret) {
-            return new Response(JSON.stringify({ error: 'CONFIG_ERROR: CLIENT_ID or CLIENT_SECRET missing in env', method }), { status: 500, headers });
+            return new Response(JSON.stringify({ error: 'ENV_MISSING' }), { status: 500, headers });
         }
 
         const params = new URLSearchParams();
@@ -60,12 +55,9 @@ export async function onRequest(context) {
         });
 
         const data = await response.json();
+        return new Response(JSON.stringify(data), { status: response.status, headers });
 
-        return new Response(JSON.stringify(data), {
-            status: response.status,
-            headers
-        });
-    } catch (error) {
-        return new Response(JSON.stringify({ error: 'UNEXPECTED_EXCEPTION', message: error.message, stack: error.stack, method }), { status: 500, headers });
+    } catch (e) {
+        return new Response(JSON.stringify({ error: 'CRASH', msg: e.message, method }), { status: 500, headers });
     }
 }
