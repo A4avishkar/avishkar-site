@@ -10,32 +10,29 @@ Your website is ready! Here's what I've created:
 
 ## 🎯 Free Deployment Options
 
-### Option 1: Netlify (Recommended - Easiest)
+### Option 1: Cloudflare Pages (Recommended - Current)
 
-**Why Netlify?**
-- ✅ 100% Free forever
-- ✅ Automatic SSL certificate
-- ✅ Global CDN
-- ✅ Easy custom domain setup
-- ✅ Drag & drop deployment
+**Why Cloudflare Pages?**
+- ✅ Higher free limits than Netlify
+- ✅ Global edge network (extremely fast)
+- ✅ Integrated "Pages Functions" for your OAuth backend
+- ✅ Automatic SSL & custom domains
 
 **Steps:**
 
-1. **Go to Netlify**
-   - Visit: https://www.netlify.com/
-   - Click "Sign up" (use GitHub, GitLab, or email)
-
-2. **Deploy Your Site**
-   - After login, click "Add new site" → "Deploy manually"
-   - Drag and drop your entire `avishkarsite` folder (or just select the 3 files: index.html, style.css, script.js)
-   - Wait 10-20 seconds for deployment
-   - You'll get a random URL like: `https://random-name-123.netlify.app`
-
-3. **Add Custom Domain**
-   - In Netlify dashboard, go to "Domain settings"
-   - Click "Add custom domain"
-   - Enter: `avishkar.site`
-   - Netlify will show you DNS records to add
+1. **Push Changes to GitHub**
+   - Push the updated `avishkarsite` folder (with `functions/` subfolder)
+2. **Go to Cloudflare Dashboard**
+   - Click "Workers & Pages" -> "Create application" -> "Pages" -> "Connect to Git"
+3. **Configure Project**
+   - **Framework preset**: None
+   - **Build command**: (Leave blank)
+   - **Build output directory**: `avishkarsite`
+4. **Set Environment Variables**
+   - Go to Project Settings -> Variables & Secrets
+   - Add `CLIENT_ID` and `CLIENT_SECRET` (from your Google Cloud Console)
+5. **Connect Domain**
+   - Go to "Custom domains" and add `avishkar.site`
 
 4. **Configure DNS in Namecheap**
    - Log into Namecheap: https://www.namecheap.com/myaccount/login/
@@ -55,7 +52,7 @@ Your website is ready! Here's what I've created:
    - Enter: `avishkar.site`
 
 6. **Enable SSL (Automatic)**
-   - Netlify automatically provisions SSL certificate
+   - Cloudflare automatically provisions SSL certificates for all Pages sites.
    - Your site will be accessible at `https://avishkar.site`
 
 ---

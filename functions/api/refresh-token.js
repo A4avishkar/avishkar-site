@@ -1,0 +1,54 @@
+export async function onRequest(context) {
+    const { request, env } = context;
+    const headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
+        'Content-Type': 'application/json'
+    };
+
+    if (request.method === 'OPTIONS') {
+        return new Response(null, { status: 200, headers });
+    }
+
+    if (request.method !== 'POST') {
+        return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers });
+    }
+
+    try {
+        const body = await request.json();
+        const { refresh_token } = body;
+
+        if (!refresh_token) {
+            return new Response(JSON.stringify({ error: 'Missing refresh_token' }), { status: 400, headers });
+        }
+
+        const client_id = env.CLIENT_ID;
+        const client_secret = env.CLIENT_SECRET;
+
+        if (!client_id || !client_secret) {
+            return new Response(JSON.stringify({ error: 'Server configuration error: CLIENT_ID or CLIENT_SECRET not set in Cloudflare' }), { status: 500, headers });
+        }
+
+        const params = new URLSearchParams();
+        params.append('client_id', client_id);
+        params.append('client_secret', client_secret);
+        params.append('refresh_token', refresh_token);
+        params.append('grant_type', 'refresh_token');
+
+        const response = await fetch('https://oauth2.googleapis.com/token', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+        });
+
+        const data = await response.json();
+
+        return new Response(JSON.stringify(data), {
+            status: response.status,
+            headers
+        });
+    } catch (error) {
+        return new Response(JSON.stringify({ error: error.message }), { status: 500, headers });
+    }
+}
