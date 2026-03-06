@@ -7,12 +7,11 @@ export async function onRequest(context) {
         'Content-Type': 'application/json'
     };
 
-    if (request.method === 'OPTIONS') {
+    // Temporarily allow all methods to debug if POST is being converted to GET
+    const method = request.method;
+    
+    if (method === 'OPTIONS') {
         return new Response(null, { status: 200, headers });
-    }
-
-    if (request.method !== 'POST') {
-        return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405, headers });
     }
 
     try {
@@ -51,6 +50,6 @@ export async function onRequest(context) {
             headers
         });
     } catch (error) {
-        return new Response(JSON.stringify({ error: error.message }), { status: 500, headers });
+        return new Response(JSON.stringify({ error: error.message, method: method }), { status: 500, headers });
     }
 }
