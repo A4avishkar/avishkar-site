@@ -43,30 +43,43 @@
     </style>
     <script>
         (function () {
-            const params = new URLSearchParams(window.location.search);
-            const code = params.get('code');
-            const state = params.get('state');
-
             function buildPhoziUri() {
-                const q = new URLSearchParams();
-                if (code) q.set('code', code);
-                if (state) q.set('state', state);
-                return 'phozi://oauth2redirect' + (q.toString() ? ('?' + q.toString()) : '');
+                // Forward *all* query params back to the app (code, scope, authuser, prompt, state...)
+                // This avoids issues if Google changes which params are returned.
+                const q = new URLSearchParams(window.location.search);
+                const qs = q.toString();
+                return 'phozi://oauth2redirect' + (qs ? ('?' + qs) : '');
             }
 
             function tryOpenApp() {
                 const target = buildPhoziUri();
-                window.location.assign(target);
+                // Some browsers block non-user-initiated custom scheme navigations.
+                // Open the app only from a user gesture (button click).
+                window.location.replace(target);
             }
 
             document.addEventListener('DOMContentLoaded', function () {
                 const btn = document.getElementById('openBtn');
+
+                let attempted = false;
+
+                function autoTryOnce() {
+                    // If the app successfully hands off, the page is typically hidden.
+                    // We avoid any further attempts after that.
+                    if (attempted) return;
+                    if (document.hidden) return;
+
+                    attempted = true;
+
+                    // Auto attempt once (may still be blocked by the browser).
+                    // Button remains as a guaranteed fallback.
+                    tryOpenApp();
+                }
+
                 if (btn) btn.onclick = tryOpenApp;
 
-                // Auto attempt open
-                setTimeout(() => {
-                    tryOpenApp();
-                }, 400);
+                // Try shortly after load, but only once.
+                setTimeout(autoTryOnce, 250);
             });
         })();
     </script>
@@ -78,4 +91,4 @@
     <button id="openBtn" class="btn">Open Phozi App</button>
 </body>
 
-</html>
+</html>
