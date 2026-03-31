@@ -164,6 +164,7 @@ After deployment:
 - [ ] Site accessible at http://avishkar.site
 - [ ] SSL certificate active (https://avishkar.site shows padlock)
 - [ ] All pages and links working correctly
+- [ ] Repo has NO git submodules (Cloudflare Pages should deploy plain folders like `phozi/` and `tradeless/`)
 
 ---
 
