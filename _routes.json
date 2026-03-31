@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [
+    "/phozi/*",
+    "/tradeless/*",
+    "/images/*",
+    "/robots.txt",
+    "/sitemap.xml"
+  ]
+}
