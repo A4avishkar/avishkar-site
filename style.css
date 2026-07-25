@@ -99,13 +99,13 @@ strong { color: var(--text); font-weight: 600; }
 
 .hero-row {
     display: flex;
-    gap: 40px;
-    align-items: flex-start;
+    gap: 20px;
+    align-items: center;
 }
 
 .hero-photo {
-    width: 88px;
-    height: 88px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid var(--border);
