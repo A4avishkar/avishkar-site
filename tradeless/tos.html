@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Tradeless</title>
+    <meta name="description" content="Terms of Service for Tradeless - Zero brokerage API-first trading app. Terms and conditions of app usage.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: "hsl(220 25% 6%)",
+                        foreground: "hsl(210 20% 95%)",
+                        primary: { DEFAULT: "hsl(152 70% 50%)", foreground: "hsl(220 25% 6%)" },
+                        secondary: { DEFAULT: "hsl(220 18% 14%)", foreground: "hsl(210 20% 90%)" },
+                        muted: { DEFAULT: "hsl(220 15% 16%)", foreground: "hsl(215 15% 55%)" },
+                        border: "hsl(220 15% 18%)",
+                    },
+                    fontFamily: { display: ["'Space Grotesk'", "sans-serif"], body: ["'Inter'", "sans-serif"] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-body">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <a href="index.html" class="font-display text-xl font-bold text-foreground">
+                Trade<span class="text-primary">less</span>
+            </a>
+            <a href="index.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors">&larr; Back to App</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto max-w-3xl px-6 pt-32 pb-20">
+        <h1 class="font-display text-4xl font-bold text-foreground mb-2">Terms of Service</h1>
+        <p class="text-sm text-muted-foreground mb-8">Last Updated: March 30, 2026</p>
+
+        <div class="space-y-8 text-foreground/90 leading-relaxed">
+            <section>
+                <p>Please read these Terms of Service ("Terms") carefully before using Tradeless. By using the Tradeless application, you agree to comply with and be bound by these Terms.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">1. Account & API Responsibilities</h2>
+                <p>You are solely responsible for maintaining the confidentiality of your broker API keys, client secrets, and trading credentials. Tradeless does not manage or store your credentials remotely.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">2. Execution & Market Risks</h2>
+                <p>Trading in financial markets involves substantial risk of loss. Tradeless is an API wrapper tool. All trade orders, executions, stop-losses, and market risks are executed at your own discretion and risk.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">3. Disclaimer of Liability</h2>
+                <p>Tradeless is provided "AS IS" without warranty of any kind. Tradeless shall not be held liable for any financial losses, API disruptions, broker downtime, or trade execution failures.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">4. Contact Information</h2>
+                <p>For inquiries regarding these terms, reach out at <a href="mailto:a4avishkar@gmail.com" class="text-primary underline">a4avishkar@gmail.com</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="border-t border-border py-8 bg-background text-center text-sm text-muted-foreground">
+        © 2026 Tradeless. All rights reserved.
+    </footer>
+</body>
+</html>

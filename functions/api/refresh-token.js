@@ -14,8 +14,7 @@ export async function onRequest(context) {
         return new Response(JSON.stringify({ 
             message: 'Refresh Token Function is ALIVE', 
             hasClientId: !!env.CLIENT_ID,
-            hasClientSecret: !!env.CLIENT_SECRET,
-            envKeys: Object.keys(env)
+            hasClientSecret: !!env.CLIENT_SECRET
         }), { status: 200, headers });
     }
     

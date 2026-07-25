@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Tradeless</title>
+    <meta name="description" content="Privacy Policy for Tradeless - Zero brokerage API-first trading app. Learn how your API keys and local data are protected.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: "hsl(220 25% 6%)",
+                        foreground: "hsl(210 20% 95%)",
+                        primary: { DEFAULT: "hsl(152 70% 50%)", foreground: "hsl(220 25% 6%)" },
+                        secondary: { DEFAULT: "hsl(220 18% 14%)", foreground: "hsl(210 20% 90%)" },
+                        muted: { DEFAULT: "hsl(220 15% 16%)", foreground: "hsl(215 15% 55%)" },
+                        border: "hsl(220 15% 18%)",
+                    },
+                    fontFamily: { display: ["'Space Grotesk'", "sans-serif"], body: ["'Inter'", "sans-serif"] },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen bg-background text-foreground font-body">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+        <div class="container mx-auto flex items-center justify-between px-6 py-4">
+            <a href="index.html" class="font-display text-xl font-bold text-foreground">
+                Trade<span class="text-primary">less</span>
+            </a>
+            <a href="index.html" class="text-sm text-muted-foreground hover:text-foreground transition-colors">&larr; Back to App</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto max-w-3xl px-6 pt-32 pb-20">
+        <h1 class="font-display text-4xl font-bold text-foreground mb-2">Privacy Policy</h1>
+        <p class="text-sm text-muted-foreground mb-8">Last Updated: March 30, 2026</p>
+
+        <div class="space-y-8 text-foreground/90 leading-relaxed">
+            <section>
+                <p>Tradeless ("we", "our", or "us") respects your privacy. Tradeless is designed as a local-first, API-driven trading interface. We do not store your trading credentials, API secrets, or transaction history on any external servers.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">1. Local Encryption & Storage</h2>
+                <p>All broker API keys, API secrets, session tokens, and user settings remain <strong>100% encrypted</strong> on your local device's hardware-backed secure storage. They are never transmitted to Tradeless servers.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">2. Direct Broker Connections</h2>
+                <p>When you execute trades or view live market data, Tradeless sends requests directly from your device to your broker's official API endpoints. No intermediary servers participate in your transactions.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">3. Data Collection</h2>
+                <p>We do not collect personal identify information, order books, portfolio balances, or financial logs. Any app analytics collected (if enabled) are strictly aggregated and anonymous crash telemetry to improve performance.</p>
+            </section>
+
+            <section>
+                <h2 class="font-display text-xl font-semibold text-primary mb-3">4. Contact Us</h2>
+                <p>If you have questions about this privacy policy, contact support at <a href="mailto:a4avishkar@gmail.com" class="text-primary underline">a4avishkar@gmail.com</a>.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="border-t border-border py-8 bg-background text-center text-sm text-muted-foreground">
+        © 2026 Tradeless. All rights reserved.
+    </footer>
+</body>
+</html>
