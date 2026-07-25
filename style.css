@@ -380,6 +380,74 @@ strong { color: var(--text); font-weight: 600; }
     color: var(--text-faint);
 }
 
+/* ===== EDUCATION ===== */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.education-card, .research-card, .certifications-card {
+    padding: 20px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    transition: border-color 0.2s;
+}
+
+.education-card:hover, .research-card:hover, .certifications-card:hover {
+    border-color: #3a3a3a;
+}
+
+.edu-date {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-family: var(--mono);
+    color: var(--blue);
+    margin-bottom: 8px;
+}
+
+.education-card h3, .research-card h3, .certifications-card h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.edu-sub {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    margin-bottom: 10px;
+}
+
+.edu-desc {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+}
+
+.certs-list {
+    list-style: none;
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.certs-list li {
+    position: relative;
+    padding-left: 14px;
+}
+
+.certs-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--blue);
+}
+
 /* ===== ANIMATIONS ===== */
 .fade-in {
     opacity: 0;
@@ -419,6 +487,8 @@ strong { color: var(--text); font-weight: 600; }
     .hero h1 { font-size: 1.4rem; }
 
     .skills-grid { grid-template-columns: 1fr; }
+
+    .education-grid { grid-template-columns: 1fr; }
 
     .project { flex-direction: column; }
 
