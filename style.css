@@ -97,6 +97,25 @@ strong { color: var(--text); font-weight: 600; }
     border-bottom: 1px solid var(--border);
 }
 
+.hero-row {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+}
+
+.hero-photo {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.hero-intro {
+    flex: 1;
+}
+
 .hero h1 {
     font-size: 1.75rem;
     font-weight: 700;
@@ -390,6 +409,12 @@ strong { color: var(--text); font-weight: 600; }
     }
 
     .nav-links.open { display: flex; }
+
+    .hero-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
 
     .hero h1 { font-size: 1.4rem; }
 
