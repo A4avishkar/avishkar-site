@@ -38,3 +38,14 @@ if (fadeEls.length) {
     }, { threshold: 0.15 });
     fadeEls.forEach(el => obs.observe(el));
 }
+
+// Populate email (bypass Cloudflare email obfuscation)
+(function() {
+    const u = 'a4avishkar';
+    const d = 'gmail.com';
+    const addr = u + '@' + d;
+    const el = document.getElementById('email-link');
+    const txt = document.getElementById('email-text');
+    if (el) el.href = 'mailto:' + addr;
+    if (txt) txt.textContent = addr;
+})();
