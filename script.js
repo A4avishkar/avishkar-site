@@ -1,65 +1,40 @@
-// Smooth scroll for in-page links
-const nav = document.querySelector('.nav');
-const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+// Mobile nav toggle
+const toggle = document.querySelector('.mobile-toggle');
+const navLinks = document.querySelector('.nav-links');
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href === '#') return;
-        e.preventDefault();
-        
-        // Close mobile nav if open
-        if (nav && nav.classList.contains('nav-active')) {
-            nav.classList.remove('nav-active');
-            if (mobileNavToggle) mobileNavToggle.setAttribute('aria-expanded', 'false');
-        }
-
-        const target = document.querySelector(href);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    });
-});
-
-// Mobile nav toggle handler
-if (mobileNavToggle && nav) {
-    mobileNavToggle.addEventListener('click', () => {
-        const expanded = mobileNavToggle.getAttribute('aria-expanded') === 'true';
-        mobileNavToggle.setAttribute('aria-expanded', !expanded);
-        nav.classList.toggle('nav-active');
+if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+        const open = navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open);
     });
 }
 
-// Header background on scroll
-const header = document.querySelector('.header');
-if (header) {
+// Close mobile nav on link click
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        if (navLinks) navLinks.classList.remove('open');
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+    });
+});
+
+// Sticky header style on scroll
+const nav = document.querySelector('.site-nav');
+if (nav) {
     window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 40);
+        nav.style.borderBottomColor = window.scrollY > 30 ? '#2a2a2a' : 'transparent';
     });
 }
 
-// Scroll reveal observer
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.section, .metrics-section').forEach(section => {
-    section.classList.add('section-reveal');
-    observer.observe(section);
-});
-
-// Card Subtle Mouse Tracking Effect
-document.querySelectorAll('.project-card, .skill-card, .visual-card').forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-    });
-});
+// Fade-in on scroll
+const fadeEls = document.querySelectorAll('.fade-in');
+if (fadeEls.length) {
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => obs.observe(el));
+}
