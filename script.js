@@ -34,12 +34,12 @@ if (mobileNavToggle && nav) {
 const header = document.querySelector('.header');
 if (header) {
     window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
+        header.classList.toggle('scrolled', window.scrollY > 40);
     });
 }
 
-// Subtle fade-in for sections
-const observerOptions = { threshold: 0.08, rootMargin: '0px 0px -40px 0px' };
+// Scroll reveal observer
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -48,8 +48,18 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-document.querySelectorAll('.section').forEach(section => {
+document.querySelectorAll('.section, .metrics-section').forEach(section => {
     section.classList.add('section-reveal');
     observer.observe(section);
 });
 
+// Card Subtle Mouse Tracking Effect
+document.querySelectorAll('.project-card, .skill-card, .visual-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
